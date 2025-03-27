@@ -30,6 +30,9 @@ public class Battery
             _notifier.Notify(_batterylevel);
         }
     }
+    /// <summary>
+    ///Checking if the battery has enough power 
+    /// </summary>
     public bool HasSufficientPower(int required) => _batterylevel >= required;
     
     public void UseUpBattery(int value)

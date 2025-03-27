@@ -3,8 +3,14 @@ using System.Text.RegularExpressions;
 
 namespace AnotherAPBD
 {
+    /// <summary>
+    ///Class that is responbile for instance of device
+    /// </summary>
     public class Embedded : Device
     {
+        /// <summary>
+        ///Validating the ID for embedded
+        /// </summary>
         public static IIdValidator IdValidator { get; set; } =
             new EmbeddedDeviceIdValidator();
 
@@ -65,6 +71,9 @@ namespace AnotherAPBD
                 throw new ConnectionException();
             }
         }
+        /// <summary>
+        ///Function override from the device that later is used for saving 
+        /// </summary>
         public override string ToSavingString()
         {
             return $"{Id},{Name},{IsEnabled},{IpAddress},{NetworkName}";

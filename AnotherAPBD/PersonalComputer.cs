@@ -1,5 +1,8 @@
 namespace AnotherAPBD
 {
+    /// <summary>
+    ///Class that is responbile for instance of device
+    /// </summary>
     public class PersonalComputer : Device
     {
         public static IIdValidator IdValidator { get; set; } = new PersonalComputerIdValidator();

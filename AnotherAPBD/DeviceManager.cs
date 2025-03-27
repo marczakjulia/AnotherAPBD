@@ -16,7 +16,9 @@ namespace AnotherAPBD
             _deviceParser = deviceParser;
             ParseDevices(lines);
         }
-
+        /// <summary>
+        ///Function for adding new devices </summary>
+        ///<param name="newDevice">instance of device </param>
         public void AddDevice(Device newDevice)
         {
             foreach (var storedDevice in _devices)
@@ -32,7 +34,9 @@ namespace AnotherAPBD
             }
             _devices.Add(newDevice);
         }
-
+        /// <summary>
+        ///Function for adding editing devices </summary>
+        ///<param name="editDevice">instance of device </param>
         public void EditDevice(Device editDevice)
         {
             int targetDeviceIndex = -1;
@@ -54,7 +58,9 @@ namespace AnotherAPBD
             }
             _devices[targetDeviceIndex] = editDevice;
         }
-
+        /// <summary>
+        ///Function for adding removing devices </summary>
+        ///<param name="deviceId">id of function </param>
         public void RemoveDeviceById(string deviceId)
         {
             Device targetDevice = null;
@@ -72,6 +78,10 @@ namespace AnotherAPBD
             }
             _devices.Remove(targetDevice);
         }
+        
+        /// <summary>
+        ///Function for fetching device s </summary>
+        ///<param name="id">id of device </param>
         public Device GetDeviceById(string id)
         {
             foreach (var storedDevice in _devices)
@@ -91,7 +101,9 @@ namespace AnotherAPBD
                 Console.WriteLine(device.ToString());
             }
         }
-
+        /// <summary>
+        ///Function for saving devices</summary>
+        ///<param name="outputPath">path to txt file</param>
         public void SaveDevices(string outputPath)
         {
             var lines = _devices.Select(d => d.ToSavingString()).ToArray();

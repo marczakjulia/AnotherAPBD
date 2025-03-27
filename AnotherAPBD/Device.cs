@@ -25,5 +25,8 @@ public abstract class Device
     {
         IsEnabled = false;
     } 
+    /// <summary>
+    ///function to save to file latter 
+    /// </summary>
     public abstract string ToSavingString();
 }
