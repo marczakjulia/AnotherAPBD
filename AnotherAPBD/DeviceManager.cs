@@ -10,12 +10,15 @@ namespace AnotherAPBD
             private readonly IDeviceParser _deviceParser;
             private const int MaxCapacity = 15;
             private readonly List<Device> _devices = new(MaxCapacity);
+            private readonly DeviceFileManager _deviceFileManager;
+            
 
             // The constructor now accepts a filePath and reads the file internally
-            public DeviceManager(string filePath, IDeviceParser deviceParser)
+            public DeviceManager(string filePath, IDeviceParser deviceParser, DeviceFileManager deviceFileManager)
             {
                 _deviceParser = deviceParser;
-                string[] lines = DeviceFileReader.ReadFile(filePath);
+                _deviceFileManager = deviceFileManager;
+                string[] lines = deviceFileManager.ReadFile(filePath);
                 ParseDevices(lines);
             }
 
