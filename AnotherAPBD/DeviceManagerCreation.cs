@@ -9,7 +9,6 @@ public static class DeviceManagerCreation
     public static DeviceManager CreateDeviceManager(string filePath)
     {
         IDeviceParser parser = new DeviceParser();
-        string[] lines = DeviceFileReader.ReadFile(filePath);
-        return new DeviceManager(lines, parser);
+        return new DeviceManager(filePath, parser);
     }
 }
